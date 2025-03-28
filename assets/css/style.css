@@ -1,106 +1,119 @@
-/* Glitch title effect */
-.glitch {
-  font-size: 4em;
-  font-weight: bold;
-  color: black;
-  position: relative;
-  display: inline-block;
-  margin-top: 20px;
-  animation: glitch 1s infinite;
-  font-family: 'Courier New', monospace;
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(2px, -2px);
-  }
-  60% {
-    transform: translate(-1px, 1px);
-  }
-  80% {
-    transform: translate(1px, -1px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-/* Page layout */
+/* Fond blanc onirique avec léger dégradé vaporeux */
 body {
-  background-color: white;
-  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f8ff 100%);
+  font-family: 'Arial Black', sans-serif;
+  color: #000;
   overflow: hidden;
 }
 
-/* Centered content */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Titre glitch */
+.glitch-title {
+  font-size: 3rem;
+  position: relative;
+  color: black;
   text-align: center;
-  height: 100vh;
-  justify-content: center;
+  margin-top: 40px;
 }
-
-/* Glitch buttons */
-.glitch-button {
-  border: none;
-  background: red;
-  color: white;
-  font-size: 1.5em;
-  padding: 0.5em 1em;
-  margin: 1em;
-  cursor: pointer;
-  animation: glitchBtn 2s infinite;
-}
-
-@keyframes glitchBtn {
-  0% {
-    transform: translate(0);
-  }
-  25% {
-    transform: translate(-2px, 2px);
-  }
-  50% {
-    transform: translate(2px, -2px);
-  }
-  75% {
-    transform: translate(-1px, 1px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-/* Flying butterflies */
-.butterfly {
+.glitch-title::before,
+.glitch-title::after {
+  content: attr(data-text);
   position: absolute;
-  width: 60px;
-  animation: fly 15s infinite linear;
+  left: 0;
+  width: 100%;
+  color: #f0f;
+  background: white;
+  clip: rect(0, 900px, 0, 0);
 }
+.glitch-title::before {
+  animation: glitchTop 1.5s infinite linear alternate-reverse;
+}
+.glitch-title::after {
+  color: #0ff;
+  animation: glitchBot 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(5px, 9999px, 15px, 0); left: 2px; }
+  20% { clip: rect(10px, 9999px, 20px, 0); left: -2px; }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+@keyframes glitchBot {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(10px, 9999px, 15px, 0); left: -1px; }
+  20% { clip: rect(15px, 9999px, 25px, 0); left: 1px; }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+/* Liens centrés */
+.links {
+  text-align: center;
+  margin-top: 10px;
+}
+.links a {
+  margin: 0 10px;
+  font-weight: bold;
+  color: purple;
+  text-decoration: none;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Boutons glitch */
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 20px;
+}
+.glitch-button {
+  width: 80px;
+  animation: buttonGlitch 1.5s infinite steps(2, end);
+}
+@keyframes buttonGlitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Merde centrée */
+.poop {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+.poop img {
+  width: 100px;
+  transform: rotate(-3deg);
+}
+
+/* Papillons animés */
+.butterflies {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.butterfly {
+  width: 60px;
+  animation: fly 3s infinite ease-in-out alternate;
+}
+.butterfly:nth-child(2) { animation-delay: 0.5s; }
+.butterfly:nth-child(3) { animation-delay: 1s; }
+.butterfly:nth-child(4) { animation-delay: 1.5s; }
 
 @keyframes fly {
-  0% {
-    transform: translateX(-10%) translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateX(50vw) translateY(-50vh) rotate(360deg);
-  }
-  100% {
-    transform: translateX(100vw) translateY(0) rotate(720deg);
-  }
+  0%   { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(2deg); }
 }
 
-/* Poop styling */
-.poop {
-  width: 100px;
-  margin-top: 30px;
-}
 /* placeholder for CSS content */
