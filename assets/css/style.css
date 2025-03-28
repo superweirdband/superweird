@@ -1,1 +1,106 @@
+/* Glitch title effect */
+.glitch {
+  font-size: 4em;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+  animation: glitch 1s infinite;
+  font-family: 'Courier New', monospace;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Page layout */
+body {
+  background-color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Centered content */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+/* Glitch buttons */
+.glitch-button {
+  border: none;
+  background: red;
+  color: white;
+  font-size: 1.5em;
+  padding: 0.5em 1em;
+  margin: 1em;
+  cursor: pointer;
+  animation: glitchBtn 2s infinite;
+}
+
+@keyframes glitchBtn {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-2px, 2px);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+  75% {
+    transform: translate(-1px, 1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Flying butterflies */
+.butterfly {
+  position: absolute;
+  width: 60px;
+  animation: fly 15s infinite linear;
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(-10%) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(-50vh) rotate(360deg);
+  }
+  100% {
+    transform: translateX(100vw) translateY(0) rotate(720deg);
+  }
+}
+
+/* Poop styling */
+.poop {
+  width: 100px;
+  margin-top: 30px;
+}
 /* placeholder for CSS content */
